@@ -1,0 +1,81 @@
+/* File: style.css */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #fff0f5; /* Lavender Blush */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(255, 182, 193, 0.5);
+    width: 350px;
+    border: 2px solid #ffb6c1;
+}
+
+h2 {
+    color: #db7093;
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    color: #c71585;
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ffc0cb;
+    border-radius: 8px;
+    box-sizing: border-box;
+    outline: none;
+}
+
+input:focus {
+    border-color: #db7093;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #ff69b4; /* Hot Pink */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #db7093;
+}
+
+.result {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #fff5f7;
+    border-left: 5px solid #ff69b4;
+    color: #333;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.reset-btn {
+    display: inline-block;
+    margin-top: 10px;
+    color: #db7093;
+    text-decoration: none;
+    font-size: 0.8rem;
+}

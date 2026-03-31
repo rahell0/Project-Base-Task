@@ -1,37 +1,56 @@
+<?php
+// File: index.php
+require_once 'User.php';
+
+$userObj = null;
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $userObj = new User(
+        $_POST['firstname'],
+        $_POST['lastname'],
+        $_POST['phone'],
+        $_POST['address']
+    );
+}
+?>
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <title>Form Sederhana - Universitas Brawijaya</title>
-    <style>
-        body { font-family: Arial, sans-serif; margin: 50px; }
-        .container { max-width: 400px; border: 1px solid #ccc; padding: 20px; border-radius: 8px; }
-        .result { margin-top: 20px; padding: 10px; background: #e7f3fe; border-left: 6px solid #2196F3; }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input Form PHP - Team Pink</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <div class="container">
-    <h2>Form Input Mahasiswa</h2>
-    <form method="POST">
-        <label>Nama:</label><br>
-        <input type="text" name="nama" required><br><br>
-        <label>Email:</label><br>
-        <input type="email" name="email" required><br><br>
-        <button type="submit" name="submit">Submit</button>
+    <h2>Membuat Form Sederhana</h2>
+    
+    <form method="POST" action="">
+        <label>Firstname</label>
+        <input type="text" name="firstname" required>
+
+        <label>Lastname</label>
+        <input type="text" name="lastname" required>
+
+        <label>Phone Number</label>
+        <input type="text" name="phone" required>
+
+        <label>Address</label>
+        <textarea name="address" rows="3" required></textarea>
+
+        <button type="submit">Submit</button>
     </form>
 
-    <?php
-    if (isset($_POST['submit'])) {
-        require_once 'User.php';
-        
-        // Inisiasi Object
-        $user = new User($_POST['nama'], $_POST['email']);
-        
-        echo "<div class='result'>";
-        echo $user->tampilkanData();
-        echo "</div>";
-    }
-    ?>
+    <?php if ($userObj): ?>
+        <div class="result">
+            <strong><?php echo $userObj->getGreeting(); ?></strong><br>
+            <?php echo $userObj->getPhone(); ?><br>
+            <?php echo $userObj->getAddress(); ?><br>
+            <a href="index.php" class="reset-btn">Reset</a>
+        </div>
+    <?php endif; ?>
 </div>
 
 </body>
